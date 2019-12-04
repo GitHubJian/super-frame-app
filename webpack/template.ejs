@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Apply 360 with Chrome-WebKit-Core -->
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- Disable Baidu-Transcoding -->
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="FeedRocket" />
+
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
+    <script>
+      new window.VConsole()
+    </script>
+  </head>
+  <body>
+    <div class="sfa-loading-layer">
+      <div class="sfa-loading-bgLayer sfa-loading-dark"></div>
+      <div class="sfa-loading sfa-loading-dark">
+        <div class="sfa-loading-icon-tab">
+          <span class="sfa-loading-tab-bglogo"></span>
+          <span class="sfa-loading-tab-toplight"></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -6,6 +6,9 @@ class SuperFrameApp extends event.EventEmitter {
   }
 
   render() {
+    var layer = document.getElementById('layer')
+
+    layer.classList.add('sfa-loading-open')
     // 渲染 video 元素
     this.emit('DOMContentLoaded')
 
@@ -15,6 +18,9 @@ class SuperFrameApp extends event.EventEmitter {
   }
 
   destroy() {
+    var layer = document.getElementById('layer')
+    layer.classList.add('sfa-loading-close')
+
     this.emit('beforeunload')
     // 卸载 video
     this.emit('unload')

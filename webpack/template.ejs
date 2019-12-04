@@ -28,7 +28,7 @@
     </script>
   </head>
   <body>
-    <div class="sfa-loading-layer">
+    <div id="layer" class="sfa-loading-layer">
       <div class="sfa-loading-bgLayer sfa-loading-dark"></div>
       <div class="sfa-loading sfa-loading-dark">
         <div class="sfa-loading-icon-tab">
@@ -37,5 +37,16 @@
         </div>
       </div>
     </div>
+
+    <script>
+      var sfa = new window.SFA()
+      setTimeout(function() {
+        sfa.render()
+
+        setTimeout(function() {
+          sfa.destroy()
+        }, 2e3)
+      }, 1e3)
+    </script>
   </body>
 </html>

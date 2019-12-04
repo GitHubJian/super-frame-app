@@ -36,7 +36,7 @@
 
   events.prototype._maxListeners = void 0
 
-  event.defaultMaxListeners = 10
+  events.defaultMaxListeners = 10
 
   events.prototype.setMaxListeners = function(v) {
     if (!isNumber(v) || 0 > v || isNaN(v))

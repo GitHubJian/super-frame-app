@@ -25,7 +25,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@assets': path.resolve(pathConfig.root, './src/assets'),
+      '@assets': path.resolve(pathConfig.root, './assets'),
       '@src': path.resolve(pathConfig.root, './src')
     },
     extensions: ['.js'],

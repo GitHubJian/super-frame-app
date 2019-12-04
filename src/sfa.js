@@ -4,34 +4,55 @@ class SuperFrameApp extends event.EventEmitter {
   constructor(options = {}) {
     super()
 
-    this.renderTree =
-      options.renderTree ||
-      function() {
-        console.log('render tree')
-      }
+    this.bindEvent()
 
-    this.on('DOMContentLoaded', function() {
+    this.init()
+  }
+
+  bindEvent() {
+    this.on('DOMContentLoadedEvent', function() {
       console.log('DOMContentLoaded Event')
     })
 
-    this.on('load', function() {
+    this.on('loadEvent', function() {
       console.log('Onload Event')
     })
 
-    this.on('beforeunload', function() {
+    this.on('beforeunloadEvent', function() {
       console.log('Onbeforeunload Event')
     })
 
-    this.on('unload', function() {
+    this.on('unloadEvent', function() {
       console.log('Onunload Event')
     })
+
+    this.on('load', function() {
+      console.log('load assets')
+    })
+
+    this.on('parse', function() {
+      console.log('预创建 video tag')
+      console.log('domtree & cssom')
+    })
+
+    this.on('renderTree', function() {
+      console.log('render tree')
+    })
+
+    this.on('init', function() {
+      console.log('init')
+    })
+  }
+
+  init() {
+    this.emit('init')
   }
 
   request() {
     this.dns()
     this.load()
     this.parse()
-    this.render()
+    this.renderTree()
   }
 
   // dns 解析 - 白页
@@ -44,20 +65,20 @@ class SuperFrameApp extends event.EventEmitter {
   }
   // 下载 css js 资源
   load() {
-    console.log('load assets')
+    this.emit('load')
   }
   // 解析资源 - 预创建
   parse() {
     // create video tag
-    console.log('domtree & cssom')
+    this.emit('parse')
   }
   // 渲染 - 创建
-  render() {
-    this.emit('DOMContentLoaded')
+  renderTree() {
+    this.emit('DOMContentLoadedEvent')
 
-    this.renderTree()
+    this.emit('renderTree')
 
-    this.emit('load')
+    this.emit('loadEvent')
   }
 
   destroyLoadingLayer() {
@@ -68,9 +89,9 @@ class SuperFrameApp extends event.EventEmitter {
   destroy() {
     this.destroyLoadingLayer()
 
-    this.emit('beforeunload')
+    this.emit('beforeunloadEvent')
     // 卸载 video
-    this.emit('unload')
+    this.emit('unloadEvent')
   }
 }
 
